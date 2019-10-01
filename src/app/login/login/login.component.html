@@ -1,0 +1,23 @@
+<div class="component-login">
+  <div class="component-login-container">
+    <div class="component-login-container-logo">
+      <img src="../../assets/img/svg/layers.svg" alt="logo" />
+    </div>
+    <div class="component-login-container-form">
+      <mat-form-field class="component-login-container-form-field">
+        <input matInput placeholder="E-Mail" [(ngModel)]="email">
+      </mat-form-field>
+      <mat-form-field class="component-login-container-form-field">
+        <input matInput placeholder="Password" [(ngModel)]="password" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button mat-flat-button color="primary" [disabled]="email === '' || password === ''" (click)="handleClick()">Login</button>
+      <div class="component-login-container-footer">
+        <a routerLink="/survey">Forgot password</a>
+        <a routerLink="/survey">Sign up</a>
+      </div>
+    </div>
+  </div>
+</div>
