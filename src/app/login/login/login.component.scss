@@ -8,18 +8,58 @@
   height: 100%;
   width: 100%;
 
+  -webkit-animation: bgcolor 120s infinite;
+  animation: bgcolor 60s infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+
+  @keyframes bgcolor {
+    0% {
+      background-color: #EFCE4A
+    }
+    50% {
+      background-color: #ED8A19
+    }
+    100% {
+      background-color: #EA6248
+    }
+  }
+
   &-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    padding: $spacer*2 $spacer*4 $spacer*4 $spacer*4;
+    padding: $spacer*4;
+
+    background-color: $color-grey-lightest;
+
+    border-radius: $border-radius;
 
     &-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      margin-bottom: $spacer;
+
       img {
         height: $spacer*8;
+        margin-bottom: $spacer;
+      }
 
-        margin-bottom: $spacer*2;
+      div {
+        span {
+          font-size: 24px;
+
+          &:first-child {
+            font-weight: 400;
+          }
+
+          &:nth-child(2) {
+            font-weight: 900;
+          }
+        }
       }
     }
 
@@ -34,6 +74,21 @@
 
       button {
         margin-top: $spacer*2;
+      }
+    }
+
+    &-buttonList {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+
+      button {
+
+        mat-icon {
+          margin-right: $spacer/2;
+          width: 16px;
+        }
       }
     }
 

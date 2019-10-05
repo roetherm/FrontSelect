@@ -1,7 +1,11 @@
 <div class="component-login">
   <div class="component-login-container">
     <div class="component-login-container-logo">
-      <img src="../../assets/img/svg/layers.svg" alt="logo" />
+      <img src="../../assets/img/svg/frontway.svg" alt="logo" />
+      <div>
+        <span>Front</span>
+        <span>Way</span>
+      </div>
     </div>
     <div class="component-login-container-form">
       <mat-form-field class="component-login-container-form-field">
@@ -13,10 +17,23 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <button mat-flat-button color="primary" [disabled]="email === '' || password === ''" (click)="handleClick()">Login</button>
+      <div class="component-login-container-buttonList">
+        <button mat-flat-button [disabled]="email === '' || password === ''" (click)="handleClick()">
+          <mat-icon svgIcon="frontway" aria-hidden="false" aria-label="frontway icon"></mat-icon>
+          <span>FrontWay Login</span>
+        </button>
+        <button mat-flat-button>
+          <mat-icon svgIcon="google" aria-hidden="false" aria-label="google icon"></mat-icon>
+          <span>Google Login</span>
+        </button>
+        <button mat-flat-button>
+          <mat-icon svgIcon="github" aria-hidden="false" aria-label="github icon"></mat-icon>
+          <span>GitHub Login</span>
+        </button>
+      </div>
       <div class="component-login-container-footer">
-        <a routerLink="/survey">Forgot password</a>
-        <a routerLink="/survey">Sign up</a>
+        <a routerLink="/survey">Forgot password?</a>
+        <a routerLink="/survey">Sign up now</a>
       </div>
     </div>
   </div>
