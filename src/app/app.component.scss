@@ -4,4 +4,21 @@
 
 .component-app {
   height: 100%;
+
+  -webkit-animation: bgcolor 120s infinite;
+  animation: bgcolor 60s infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+
+  @keyframes bgcolor {
+    0% {
+      background-color: #EFCE4A
+    }
+    50% {
+      background-color: #ED8A19
+    }
+    100% {
+      background-color: #EA6248
+    }
+  }
 }

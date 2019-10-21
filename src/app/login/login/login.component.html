@@ -1,5 +1,5 @@
 <div class="component-login">
-  <div class="component-login-container">
+  <div @fade *ngIf="appearance" class="component-login-container">
     <div class="component-login-container-logo">
       <img src="../../assets/img/svg/frontway.svg" alt="logo" />
       <div>
@@ -22,11 +22,11 @@
           <mat-icon svgIcon="frontway" aria-hidden="false" aria-label="frontway icon"></mat-icon>
           <span>FrontWay Login</span>
         </button>
-        <button mat-flat-button>
+        <button mat-flat-button (click)="googleLogin()">
           <mat-icon svgIcon="google" aria-hidden="false" aria-label="google icon"></mat-icon>
           <span>Google Login</span>
         </button>
-        <button mat-flat-button>
+        <button mat-flat-button (click)="githubLogin()">
           <mat-icon svgIcon="github" aria-hidden="false" aria-label="github icon"></mat-icon>
           <span>GitHub Login</span>
         </button>

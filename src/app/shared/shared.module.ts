@@ -20,6 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-  ]
+  ],
 })
 export class SharedModule { }
