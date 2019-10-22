@@ -1,5 +1,17 @@
-<div class="component-login">
-  <div @fade *ngIf="appearance" class="component-login-container">
+<!-- State: Loading -->
+<div *ngIf="user$.loading" class="component-login">
+  <ngx-spinner
+    bdColor="none"
+    size="medium"
+    color="white"
+    type="square-jelly-box"
+  >
+    <p style="font-size: 20px; color: white">Loading User...</p>
+  </ngx-spinner>
+</div>
+<!-- State: Loaded -->
+<div *ngIf="!user$.loading" class="component-login">
+  <div @bounce class="component-login-container">
     <div class="component-login-container-logo">
       <img src="../../assets/img/svg/frontway.svg" alt="logo" />
       <div>
@@ -7,7 +19,8 @@
         <span>Way</span>
       </div>
     </div>
-    <div class="component-login-container-form">
+    <!-- State: Logged in -->
+    <div *ngIf="user$.uid === ''" class="component-login-container-form">
       <mat-form-field class="component-login-container-form-field">
         <input matInput placeholder="E-Mail" [(ngModel)]="email">
       </mat-form-field>
@@ -22,7 +35,7 @@
           <mat-icon svgIcon="frontway" aria-hidden="false" aria-label="frontway icon"></mat-icon>
           <span>FrontWay Login</span>
         </button>
-        <button mat-flat-button (click)="googleLogin()">
+        <button mat-flat-button (click)="loginUser()">
           <mat-icon svgIcon="google" aria-hidden="false" aria-label="google icon"></mat-icon>
           <span>Google Login</span>
         </button>
@@ -34,6 +47,21 @@
       <div class="component-login-container-footer">
         <a routerLink="/survey">Forgot password?</a>
         <a routerLink="/survey">Sign up now</a>
+      </div>
+    </div>
+    <!-- State: Not logged in -->
+    <div *ngIf="user$.uid !== ''" class="component-login-container-form">
+      <div class="component-login-container-user">
+        <img [src]="user$.photoURL" />
+        <div>
+          <span>Logged in as</span>
+          <span>{{ user$.displayName }}</span>
+        </div>
+      </div>
+      <div class="component-login-container-buttonList">
+        <button mat-flat-button (click)="logoutUser()">
+          <span>Logout</span>
+        </button>
       </div>
     </div>
   </div>

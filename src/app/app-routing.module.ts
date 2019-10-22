@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { Routes, RouterModule } from '@angular/router';
 import { SurveyComponent } from './survey/survey/survey.component';
 
@@ -14,6 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: 'survey',
+        canActivate: [AngularFireAuthGuard],
         // Lazy Loading Feature Modules
         loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
       },
