@@ -20,14 +20,29 @@ import { reducers, metaReducers } from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './store/user';
 
-// Modules
+// Component Imports
+import { LayoutComponent } from './layout/layout.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+
+// Module Imports
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { SurveyModule } from './survey/survey.module';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule} from '@angular/material/menu';
+import { NavigationComponent } from './layout/navigation/navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    ToolbarComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +68,14 @@ import { SurveyModule } from './survey/survey.module';
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([UserEffects]),
+    LayoutModule,
+    // Angular Material Module Imports
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [
     AngularFirestore,

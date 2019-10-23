@@ -25,12 +25,15 @@ import { GoogleLogin, Logout } from '../../store/user/user.actions';
   ],
 })
 export class LoginComponent implements OnInit {
+  // States
+  loading = true;
+  // Data
   user$: User;
   // Hides the password
   hide = true;
+  // Login credentials
   email = '';
   password = '';
-  loading = true;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -39,24 +42,22 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-      this.store.select('user').subscribe(data => {
-        this.user$ = data;
-        if (data.loading) {
-          this.spinner.show();
-        } else {
-          this.spinner.hide();
-        }
-        // if (data.key !== '') {
-        //   this.user$ = data;
-        //   this.router.navigate(['/estimation']);
-        // } else {
-        //   this.user$ = undefined;
-        // }
-      });
-    }
+    this.store.select('user').subscribe(data => {
+      this.user$ = data;
+      if (data.loading) {
+        this.spinner.show();
+      } else {
+        this.spinner.hide();
+      }
+    });
+  }
 
   handleClick() {
     console.log(this.email + ' - ' + this.password);
+  }
+
+  handleContinue() {
+    this.router.navigate(['/survey']);
   }
 
   loginUser() {
@@ -64,8 +65,8 @@ export class LoginComponent implements OnInit {
   }
 
   logoutUser() {
-  this.store.dispatch(new Logout());
-}
+    this.store.dispatch(new Logout());
+  }
 
   googleLogin() {
     setTimeout(() => {

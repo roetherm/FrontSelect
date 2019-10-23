@@ -1,0 +1,18 @@
+<mat-toolbar class="toolbar">
+  <mat-toolbar-row>
+    <div class="logo">
+      <img src="../../assets/img/svg/frontway.svg" alt="logo" />
+      <span>Front</span>
+      <span>Way</span>
+    </div>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <img *ngIf="user$.photoURL" [src]="user$.photoURL" alt="profile" />
+      <span>{{ user$.displayName }}</span>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button disabled mat-menu-item>Settings</button>
+      <button mat-menu-item (click)="logoutUser()">Logout</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

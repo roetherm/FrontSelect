@@ -2,12 +2,15 @@
 @include mat-core();
 
 // Colors
-$color-primary: #607D8B;
+$color-primary: #1976D2;
+$color-primary-light: lighten($color-primary, 10);
+$color-primary-lighter: lighten($color-primary, 20);
+$color-primary-lightest: lighten($color-primary, 40);
 
 $color-grey: #9E9E9E;
 $color-grey-light: lighten($color-grey, 10);
 $color-grey-lighter: lighten($color-grey, 20);
-$color-grey-lightest: lighten($color-grey, 30);
+$color-grey-lightest: lighten($color-grey, 35);
 $color-grey-dark: darken($color-grey, 10);
 $color-grey-darker: darken($color-grey, 30);
 $color-grey-darkest: darken($color-grey, 50);
@@ -16,13 +19,14 @@ $color-amber: #FFC107;
 
 $color-green: #4CAF50;
 
-$my-app-primary: mat-palette($mat-blue-grey);
+$my-app-primary: mat-palette($mat-blue, 700);
 $my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
 $my-app-warn:    mat-palette($mat-deep-orange);
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 @include angular-material-theme($my-app-theme);
 
-// Dimensions
+// Elements
 $spacer: 12px;
 
 $border-radius: 12px;
+$border-light: 1px solid lighten($color-grey-lighter, 7);
