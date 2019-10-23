@@ -1,0 +1,29 @@
+<div class="component-stepper-category">
+  <mat-horizontal-stepper [linear]="isLinear" #stepperCategory>
+    <mat-step>
+      <ng-template matStepLabel>Development</ng-template>
+      <app-card>
+        <app-stepper-question></app-stepper-question>
+        <div class="component-stepper-category-buttonList">
+          <button mat-stroked-button color="primary" matStepperNext>Totally agree</button>
+          <button mat-stroked-button color="primary" matStepperNext>Agree</button>
+          <button mat-stroked-button color="primary" matStepperNext>Neutral</button>
+          <button mat-stroked-button color="primary" matStepperNext>Disagree</button>
+          <button mat-stroked-button color="primary" matStepperNext>Totally disagree</button>
+        </div>
+      </app-card>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Production</ng-template>
+      <app-card>
+        <app-stepper-question></app-stepper-question>
+      </app-card>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Maintenance</ng-template>
+      <app-card>
+        <app-stepper-question></app-stepper-question>
+      </app-card>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

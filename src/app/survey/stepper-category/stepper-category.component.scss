@@ -1,0 +1,36 @@
+@import '../../../theme.scss';
+
+.component-stepper-category {
+
+  mat-horizontal-stepper {
+    background: none;
+  }
+
+  &-buttonList {
+    display: flex;
+    justify-content: center;
+    padding-bottom: $spacer*2;
+
+    width: 100%;
+
+    button {
+      margin: 0 $spacer;
+
+      &:first-child {
+        color: $color-green;
+      }
+      &:nth-child(2) {
+        color: $color-lightGreen;
+      }
+      &:nth-child(3) {
+        color: $color-grey;
+      }
+      &:nth-child(4) {
+        color: $color-orange;
+      }
+      &:nth-child(5) {
+        color: $color-red;
+      }
+    }
+  }
+}

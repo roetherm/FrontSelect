@@ -1,0 +1,17 @@
+@import '../../../theme.scss';
+
+.component-stepper-question {
+
+  &-id {
+    text-transform: uppercase;
+    color: $color-grey-dark;
+    font-size: 10px;
+    margin: $spacer*2 0 0 0;
+  }
+
+  p {
+    line-height: 2;
+    font-size: 16px;
+    padding: $spacer*4 0;
+  }
+}

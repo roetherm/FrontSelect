@@ -1,0 +1,9 @@
+@import '../../../theme.scss';
+
+.component-card {
+  padding: $spacer;
+
+  &-content {
+    max-width: 800px;
+  }
+}
