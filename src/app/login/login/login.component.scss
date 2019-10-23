@@ -59,6 +59,10 @@
 
       button {
         margin-top: $spacer*2;
+
+        &.logout {
+          margin-top: $spacer;
+        }
       }
     }
 
@@ -75,6 +79,11 @@
           margin-right: $spacer/2;
           width: 16px;
         }
+      }
+
+      span {
+        text-align: center;
+        padding: $spacer*2 0 $spacer 0;
       }
     }
 

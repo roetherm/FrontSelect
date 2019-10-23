@@ -59,10 +59,9 @@
         </div>
       </div>
       <div class="component-login-container-buttonList">
-        <button mat-button (click)="handleContinue()">
-          <span>Continue</span>
-        </button>
-        <button color="warn" mat-button (click)="logoutUser()">
+        <span *ngIf="counter > 1">Forwarding in <b>{{ counter }}</b> seconds</span>
+        <span *ngIf="counter === 1">Forwarding in <b>{{ counter }}</b> second</span>
+        <button class="logout" color="warn" mat-button (click)="logoutUser()">
           <span>Logout</span>
         </button>
       </div>

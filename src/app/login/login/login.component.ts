@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
   // Login credentials
   email = '';
   password = '';
+  // Redirector
+  counter = 5;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -48,6 +50,16 @@ export class LoginComponent implements OnInit {
         this.spinner.show();
       } else {
         this.spinner.hide();
+        if (this.user$.uid !== '') {
+          const countdown = setInterval(() => {
+            this.counter --;
+            if (this.counter === 0) {
+              clearInterval(countdown);
+              this.router.navigate(['/', 'survey']);
+              this.counter = 5;
+            }
+          }, 1000);
+        }
       }
     });
   }
