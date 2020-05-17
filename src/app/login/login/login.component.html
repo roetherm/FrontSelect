@@ -1,15 +1,3 @@
-<!-- State: Loading -->
-<div *ngIf="user$.loading" class="component-login">
-  <ngx-spinner
-    bdColor="none"
-    size="medium"
-    color="white"
-    type="square-jelly-box"
-  >
-    <p style="font-size: 20px; color: white">Loading User...</p>
-  </ngx-spinner>
-</div>
-<!-- State: Loaded -->
 <div *ngIf="!user$.loading" class="component-login">
   <div @bounce class="component-login-container">
     <div class="component-login-container-logo">
@@ -39,7 +27,7 @@
           <mat-icon svgIcon="google" aria-hidden="false" aria-label="google icon"></mat-icon>
           <span>Google Login</span>
         </button>
-        <button mat-button (click)="githubLogin()">
+        <button mat-button>
           <mat-icon svgIcon="github" aria-hidden="false" aria-label="github icon"></mat-icon>
           <span>GitHub Login</span>
         </button>

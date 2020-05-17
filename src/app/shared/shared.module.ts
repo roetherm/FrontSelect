@@ -28,6 +28,8 @@ import { CardComponent } from './card/card.component';
     MatButtonModule,
     CardComponent,
   ],
-  declarations: [CardComponent],
+  declarations: [
+    CardComponent,
+  ],
 })
 export class SharedModule { }
