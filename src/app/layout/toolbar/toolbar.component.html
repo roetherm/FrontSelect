@@ -11,8 +11,14 @@
       <span>{{ user$.displayName }}</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <button disabled mat-menu-item>Account</button>
-      <button mat-menu-item (click)="logoutUser()">Logout</button>
+      <!-- <button disabled mat-menu-item>
+        <mat-icon>face</mat-icon>
+        Account
+      </button> -->
+      <button mat-menu-item (click)="logoutUser()">
+        <!-- <mat-icon>power_settings_new</mat-icon> -->
+        Logout
+      </button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -1,0 +1,135 @@
+@import '../../../../theme.scss';
+
+.component-questionContainer {
+
+  mat-card {
+    max-width: 1000px;
+    padding: $spacer*3 $spacer*2;
+
+    mat-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 0 $spacer;
+
+      div {
+
+        &.left {
+          display: flex;
+          justify-content: center;
+
+          div {
+            &.info {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              margin-left: $spacer;
+
+              span {
+
+                &:first-child {
+                  font-size: 1.2em;
+                  font-weight: normal;
+                }
+
+                &:nth-child(2) {
+                  font-size: 0.8em;
+                  color: $color-grey;
+                }
+              }
+            }
+          }
+        }
+
+        &.right {
+
+          span {
+            padding-top: 3px;
+          }
+
+          button {
+
+            mat-icon {
+              margin-top: -3px;
+            }
+          }
+        }
+      }
+
+    }
+
+    mat-card-content {
+      padding: $spacer;
+
+      span {
+        color: $color-grey-light;
+      }
+
+      p {
+
+        &.questionText {
+          padding: $spacer*4 0;
+          font-size: 2em;
+          font-weight: bold;
+        }
+
+        &.informationText {
+          padding-top: $spacer;
+        }
+
+      }
+
+    }
+
+    mat-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 $spacer*1.5;
+
+      button {
+        margin: $spacer;
+        padding: $spacer*1.5;
+        white-space: pre-wrap !important;
+        font-size: 0.7em;
+        height: 80px;
+        width: 120px;
+        line-height: 16px;
+
+      }
+
+      .mat {
+          &-1 {
+            background-color: none;
+            border-bottom: 5px solid $color-amber;
+          }
+          &-2 {
+            background-color: none;
+            border-bottom: 5px solid $color-orange;
+          }
+          &-3 {
+            background-color: none;
+            border-bottom: 5px solid $color-yellow;
+          }
+          &-5 {
+            background-color: none;
+            border-bottom: 5px solid $color-lime;
+          }
+          &-8 {
+            background-color: none;
+            border-bottom: 5px solid $color-lightGreen;
+          }
+      }
+
+    }
+
+  }
+
+}
+
+::ng-deep .mat-card-header-text {
+  display: none;
+}

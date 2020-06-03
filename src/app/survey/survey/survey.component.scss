@@ -1,4 +1,9 @@
 @import '../../../theme.scss';
 
 .component-survey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: $spacer;
 }
