@@ -17,13 +17,18 @@ export class ToolbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.select('user').subscribe(data => {
+    this.store.select('user')
+    .subscribe(data => {
       this.user$ = data;
     });
   }
 
   logoutUser() {
     this.store.dispatch(new Logout());
+  }
+
+  handleImgError(event) {
+    event.target.src = '/assets/img/png/user.png';
   }
 
 }

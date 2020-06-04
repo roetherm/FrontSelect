@@ -1,3 +1,5 @@
 <div class="component-survey">
-  <app-question-container></app-question-container>
+  <app-info-container type="welcome" *ngIf="status === 'welcome'" (status)="checkStatus($event)"></app-info-container>
+  <app-question-container *ngIf="status === 'started'" (data)="handleData($event)"></app-question-container>
+  <app-info-container type="finished" [data]="data" *ngIf="status === 'finished' && data" (status)="checkStatus($event)"></app-info-container>
 </div>

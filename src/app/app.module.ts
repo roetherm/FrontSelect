@@ -75,7 +75,7 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [
     AngularFirestore,

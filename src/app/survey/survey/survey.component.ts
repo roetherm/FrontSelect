@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn, fadeOut } from 'ng-animate';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-survey',
@@ -15,9 +16,24 @@ import { fadeIn, fadeOut } from 'ng-animate';
 })
 export class SurveyComponent implements OnInit {
 
-  constructor() { }
+  status = 'welcome';
+  data: any;
+
+  constructor(
+    private spinner: NgxSpinnerService,
+  ) { }
 
   ngOnInit() {
+  }
+
+  checkStatus(status: string) {
+    this.status = status;
+  }
+
+  handleData(data: any) {
+    this.data = data;
+    this.status = 'finished';
+    this.spinner.hide();
   }
 
 }

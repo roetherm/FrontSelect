@@ -7,16 +7,11 @@
     </div>
     <span class="example-spacer"></span>
     <button mat-button [matMenuTriggerFor]="menu">
-      <img *ngIf="user$.photoURL" [src]="user$.photoURL" alt="profile" />
+      <img *ngIf="user$.photoURL" [src]="user$.photoURL" alt="profile" (error)="handleImgError($event)"/>
       <span>{{ user$.displayName }}</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <!-- <button disabled mat-menu-item>
-        <mat-icon>face</mat-icon>
-        Account
-      </button> -->
       <button mat-menu-item (click)="logoutUser()">
-        <!-- <mat-icon>power_settings_new</mat-icon> -->
         Logout
       </button>
     </mat-menu>

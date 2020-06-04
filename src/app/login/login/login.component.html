@@ -40,7 +40,7 @@
     <!-- State: Not logged in -->
     <div *ngIf="user$.uid !== ''" class="component-login-container-form">
       <div class="component-login-container-user">
-        <img [src]="user$.photoURL" />
+        <img [src]="user$.photoURL" (error)="handleImgError($event)"/>
         <div>
           <span>Logged in as</span>
           <span>{{ user$.displayName }}</span>

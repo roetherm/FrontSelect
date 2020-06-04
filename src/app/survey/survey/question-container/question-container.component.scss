@@ -3,8 +3,13 @@
 .component-questionContainer {
 
   mat-card {
-    max-width: 1000px;
-    padding: $spacer*3 $spacer*2;
+    padding: $spacer*4;
+    width: 804px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     mat-card-header {
       display: flex;
@@ -62,6 +67,7 @@
 
     mat-card-content {
       padding: $spacer;
+      line-height: 1.6;
 
       span {
         color: $color-grey-light;
@@ -85,43 +91,91 @@
 
     mat-card-footer {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
 
       padding: 0 $spacer*1.5;
 
-      button {
-        margin: $spacer;
-        padding: $spacer*1.5;
-        white-space: pre-wrap !important;
-        font-size: 0.7em;
-        height: 80px;
-        width: 120px;
-        line-height: 16px;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      }
+        &:first-child {
+          button {
+            height: 80px;
+            width: 120px;
+          }
+        }
 
-      .mat {
-          &-1 {
-            background-color: none;
-            border-bottom: 5px solid $color-amber;
+        &:nth-child(2) {
+          margin-top: $spacer*2;
+        }
+
+        button {
+          margin: $spacer;
+          padding: $spacer*1.5;
+          white-space: pre-wrap !important;
+          font-size: 0.7em;
+          line-height: 16px;
+
+          &.rated {
+            &-0 {
+              background-color: $color-grey-light;
+            }
+            &-1 {
+              background-color: $color-amber;
+            }
+            &-2 {
+              background-color: $color-orange;
+            }
+            &-3 {
+              background-color: $color-yellow;
+            }
+            &-5 {
+              background-color: $color-lime;
+            }
+            &-8 {
+              background-color: $color-lightGreen;
+            }
           }
-          &-2 {
-            background-color: none;
-            border-bottom: 5px solid $color-orange;
-          }
-          &-3 {
-            background-color: none;
-            border-bottom: 5px solid $color-yellow;
-          }
-          &-5 {
-            background-color: none;
-            border-bottom: 5px solid $color-lime;
-          }
-          &-8 {
-            background-color: none;
-            border-bottom: 5px solid $color-lightGreen;
-          }
+        }
+
+        mat-checkbox {
+          font-size: 0.7em;
+          font-weight: 500;
+        }
+
+        .mat {
+            &-0 {
+              background-color: none;
+              border-bottom: 5px solid $color-grey-light;
+            }
+            &-1 {
+              background-color: none;
+              border-bottom: 5px solid $color-amber;
+            }
+            &-2 {
+              background-color: none;
+              border-bottom: 5px solid $color-orange;
+            }
+            &-3 {
+              background-color: none;
+              border-bottom: 5px solid $color-yellow;
+            }
+            &-5 {
+              background-color: none;
+              border-bottom: 5px solid $color-lime;
+            }
+            &-8 {
+              background-color: none;
+              border-bottom: 5px solid $color-lightGreen;
+            }
+            &-21 {
+              background-color: none;
+              border-bottom: 5px solid $color-primary;
+            }
+        }
+
       }
 
     }

@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from './card/card.component';
+import { HighlightPipe } from './highlight.pipe';
 
 @NgModule({
   imports: [
@@ -27,9 +28,11 @@ import { CardComponent } from './card/card.component';
     MatIconModule,
     MatButtonModule,
     CardComponent,
+    HighlightPipe
   ],
   declarations: [
     CardComponent,
+    HighlightPipe,
   ],
 })
 export class SharedModule { }

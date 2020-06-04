@@ -1,0 +1,49 @@
+@import '../../../../theme.scss';
+
+.component-infoContainer {
+
+  mat-card {
+    padding: $spacer*4;
+    width: 804px;
+    height: 600px;
+
+    mat-card-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 0 $spacer;
+
+      span {
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+
+    mat-card-content {
+      padding: $spacer;
+      padding-bottom: 0;
+      margin: 0;
+
+      p {
+        line-height: 1.6;
+        padding: $spacer*4 0;
+      }
+    }
+
+    mat-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0 $spacer*1.5;
+      padding-bottom: $spacer;
+
+    }
+  }
+
+}
+
+::ng-deep .mat-card-header-text {
+  display: none;
+}

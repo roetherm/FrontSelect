@@ -86,4 +86,8 @@ export class LoginComponent implements OnInit {
     }, 1000);
   }
 
+  handleImgError(event) {
+    event.target.src = '/assets/img/png/user.png';
+  }
+
 }

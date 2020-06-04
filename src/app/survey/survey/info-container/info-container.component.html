@@ -1,0 +1,31 @@
+<div class="component-infoContainer">
+
+  <mat-card>
+
+    <mat-card-header>
+
+      <span *ngIf="type === 'welcome'">Herzlich Willkommen</span>
+      <span *ngIf="type === 'finished'">Ihr Ergebnis</span>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <p *ngIf="type === 'welcome'">Das Ziel dieser Forschung ist die Erstellung eines Modells, anhand dessen ein Entwickler, auf Basis der Auswertung eines zuvor ausgefüllten Fragebogens, eine Empfehlung ausgesprochen bekommt, welches Framework am besten zu seinen persönlichen Anforderungen passt. Dazu werden die aus Online-Recherchen, Experteninterviews und eigenen Tests entwickelten Qualitätsparameter der marktführenden Front-End-Frameworks untersucht und miteinander verglichen. Lösung
+        Dabei haben die Auswertungen gezeigt, dass es bei der Auswahl des passenden Front-End-Frameworks neben technischen Merkmalen vor allem auch auf die persönlichen Präferenzen eines Entwicklers ankommt. Beispielsweise verfolgen einige Frameworks einen sehr freien Entwicklungs-Ansatz, während andere viele Konventionen vorgeben. Als Ergebnis dieser Masterarbeit entsteht eine Web-Anwendung auf Basis eines zuvor ausgearbeiteten Selektionsmodells, das die relevanten Qualitätsparameter entsprechend der persönlichen Präferenzen eines Entwicklers gewichtet und auswertet.</p>
+
+      <span *ngIf="data">{{ data.angular }}</span>
+
+    </mat-card-content>
+
+
+    <mat-card-footer>
+
+      <button mat-flat-button color="primary" *ngIf="type === 'welcome'" (click)="sendStatus('started')">Start</button>
+      <button mat-flat-button color="primary" *ngIf="type === 'finished'" (click)="sendStatus('started')">Neustart</button>
+
+    </mat-card-footer>
+
+  </mat-card>
+
+</div>

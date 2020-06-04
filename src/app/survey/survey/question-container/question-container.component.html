@@ -1,6 +1,6 @@
 <div class="component-questionContainer">
 
-  <mat-card>
+  <mat-card *ngIf="selectedQuestion">
 
     <mat-card-header>
 
@@ -11,21 +11,21 @@
         </div>
 
         <div class="info">
-          <span>Lernkurve</span>
-          <span>#008</span>
+          <span>{{ selectedQuestion.headline }}</span>
+          <span>#{{ selectedQuestion.id }}</span>
         </div>
 
       </div>
 
       <div class="right">
 
-        <button mat-icon-button aria-label="navigate_before">
+        <button mat-icon-button aria-label="navigate_before" (click)="changeQuestion('before')" [disabled]="selectedId === 1">
           <mat-icon>navigate_before</mat-icon>
         </button>
 
-        <span>1 / 13</span>
+        <span>{{ selectedId }} / {{ allQuestions.length }}</span>
 
-        <button mat-icon-button aria-label="navigate_next">
+        <button mat-icon-button aria-label="navigate_next" (click)="changeQuestion('next')" [disabled]="selectedId === allQuestions.length">
           <mat-icon>navigate_next</mat-icon>
         </button>
 
@@ -35,27 +35,30 @@
 
     <mat-card-content>
 
-      <p class="questionText">
-        Es ist mir sehr wichtig, dass die Lernkurve eines Frameworks flach verläuft.
-      </p>
+      <p class="questionText" [innerHTML]="selectedQuestion.question | highlight : 'unwichtig'"></p>
 
       <span>Hilfestellung</span>
 
       <p class="informationText">
-        Die Lernkurve gibt an, wie schnell sich ein Entwickler innerhalb eines bestimmten Komplexitätsgrades mit einem Framework zurecht findet. Innerhalb der Software-Branche wird eine Lernkurve als steil bezeichnet, wenn das Lernen eines bestimmten Tools schwierig und mühsam ist. Eine flache Lernkurve ergibt sich für effizientes und problemloses Lernen.
+        {{ selectedQuestion.help }}
       </p>
 
     </mat-card-content>
 
     <mat-card-footer>
 
-      <button mat-flat-button>Überspringen</button>
-      <button mat-flat-button color="1">Stimme voll dagegen</button>
-      <button mat-flat-button color="2">Stimme eher dagegen</button>
-      <button mat-flat-button color="3">Ist mir egal</button>
-      <button mat-flat-button color="5">Stimme eher zu</button>
-      <button mat-flat-button color="8">Stimme voll zu</button>
-      <button mat-flat-button matBadge="3" matBadgePosition="after" matBadgeColor="primary">Besonders wichtig</button>
+      <div>
+        <button mat-button [class]="currentRating === 1 ? 'rated-1' : ''" [disabled]="activeJoker && !selectedQuestion.reverse" (click)="handleRating(1)" color="1">Stimme voll dagegen</button>
+        <button mat-button [class]="currentRating === 2 ? 'rated-2' : ''" [disabled]="activeJoker" (click)="handleRating(2)" color="2">Stimme eher dagegen</button>
+        <button mat-button [class]="currentRating === 3 ? 'rated-3' : ''" [disabled]="activeJoker" (click)="handleRating(3)" color="3">Ist mir egal</button>
+        <button mat-button [class]="currentRating === 5 ? 'rated-5' : ''" [disabled]="activeJoker" (click)="handleRating(5)" color="5">Stimme eher zu</button>
+        <button mat-button [class]="currentRating === 8 || currentRating === 21? 'rated-8' : ''" [disabled]="activeJoker && selectedQuestion.reverse" (click)="handleRating(8)" color="8">Stimme voll zu</button>
+      </div>
+
+      <div>
+        <button mat-button (click)="handleRating(0)">Überspringen</button>
+        <mat-checkbox [(ngModel)]="activeJoker" (click)="checkClick()" [matBadge]="joker" matBadgePosition="after" matBadgeColor="accent">Besondere Gewichtung</mat-checkbox>
+      </div>
 
     </mat-card-footer>
 
