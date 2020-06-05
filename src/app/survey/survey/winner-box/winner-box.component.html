@@ -1,0 +1,21 @@
+<div class="component-winnerBox">
+
+  <div class="component-winnerBox-logoBox" [class]="framework.name">
+    <img *ngIf="framework.name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+    <img *ngIf="framework.name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+    <img *ngIf="framework.name === 'react'" src="assets/img/png/react.png" alt="react" />
+    <img *ngIf="framework.name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+    <img *ngIf="framework.name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+    <img *ngIf="framework.name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+  </div>
+
+  <div class="component-winnerBox-textBox" [class]="framework.name">
+    <span>Zusammenfassung</span>
+    <ul>
+      <li>{{ framework.text }}</li>
+      <li>Tea</li>
+      <li>Milk</li>
+    </ul>
+  </div>
+
+</div>

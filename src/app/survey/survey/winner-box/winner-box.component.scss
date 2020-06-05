@@ -1,0 +1,77 @@
+@import '../../../../theme.scss';
+
+.component-winnerBox {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  &-logoBox {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 132px;
+    width: 100%;
+
+    img {
+      max-width: 75%;
+      max-height: 75%;
+    }
+
+    &.angular {
+      background-color: lighten($color-angular, 20);
+    }
+    &.vue {
+      background-color: lighten($color-vue, 20);
+    }
+    &.react {
+      background-color: lighten($color-react, 20);
+    }
+    &.preact {
+      background-color: lighten($color-preact, 20);
+    }
+    &.svelte {
+      background-color: lighten($color-svelte, 20);
+    }
+    &.ember {
+      background-color: lighten($color-ember, 20);
+    }
+  }
+
+  &-textBox {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin-top: $spacer*2;
+
+    background-color: $color-grey-lightest;
+
+    padding: $spacer*2 0;
+
+    line-height: 1.6;
+
+    span {
+      padding-left: 40px;
+      color: $color-grey-darker;
+      font-weight: bold;
+    }
+
+    ul {
+      padding: 0 $spacer*2 $spacer 40px;
+
+      li {
+        color: $color-grey-darker;
+      }
+    }
+  }
+
+}

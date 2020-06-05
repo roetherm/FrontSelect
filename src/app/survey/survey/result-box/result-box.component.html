@@ -1,0 +1,22 @@
+<div class="component-resultBox">
+
+  <div class="component-resultBox-framework" [class]="name">
+    <img *ngIf="name === 'angular'" src="assets/img/png/angular.png" alt="Angular" />
+    <img *ngIf="name === 'vue'" src="assets/img/png/vue.png" alt="Vue" />
+    <img *ngIf="name === 'react'" src="assets/img/png/react.png" alt="React" />
+    <img *ngIf="name === 'preact'" src="assets/img/png/preact.png" alt="Preact" />
+    <img *ngIf="name === 'svelte'" src="assets/img/png/svelte.png" alt="Svelte" />
+    <img *ngIf="name === 'ember'" src="assets/img/png/ember.png" alt="Ember" />
+  </div>
+
+  <div class="component-resultBox-grade" [class]="name">
+    <span>{{ grade }}</span>
+  </div>
+
+  <!-- <div class="component-resultBox-text" [class]="name">
+    <button mat-icon-button aria-label="info icon">
+      <mat-icon>info</mat-icon>
+    </button>
+  </div> -->
+
+</div>

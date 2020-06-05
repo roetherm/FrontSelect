@@ -10,13 +10,37 @@ export const RateData = functions.https.onRequest(async (req, res) => {
   const neueZahl = zahl + 4;
   console.log(zahl, neueZahl);
 
-  res.json({
-    angular: '2.7',
-    vue: '1.3',
-    react: '3.2',
-    preact: '4.1',
-    svelte: '3.0',
-    ember: '4.4'
-  });
+  res.send([
+    {
+      name: 'angular',
+      grade: '2.7',
+      text: 'Angular zeichnet sich durch eine wunderbare Oberfläche aus'
+    },
+    {
+      name: 'vue',
+      grade: '1.7',
+      text: 'Vue hat eine gute Note, weil Vue tatsächlich oft viel besser ist'
+    },
+    {
+      name: 'react',
+      grade: '5.4',
+      text: 'React ist richtiger murks'
+    },
+    {
+      name: 'preact',
+      grade: '5.4',
+      text: 'React ist richtiger murks'
+    },
+    {
+      name: 'svelte',
+      grade: '1.1',
+      text: 'React ist richtiger murks'
+    },
+    {
+      name: 'ember',
+      grade: '5.4',
+      text: 'React ist richtiger murks'
+    }
+    ]);
 
 });

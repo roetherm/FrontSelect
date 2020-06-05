@@ -9,12 +9,16 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuestionContainerComponent } from './survey/question-container/question-container.component';
 import { InfoContainerComponent } from './survey/info-container/info-container.component';
+import { ResultBoxComponent } from './survey/result-box/result-box.component';
+import { WinnerBoxComponent } from './survey/winner-box/winner-box.component';
 
 @NgModule({
   declarations: [
     SurveyComponent,
     QuestionContainerComponent,
-    InfoContainerComponent
+    InfoContainerComponent,
+    ResultBoxComponent,
+    WinnerBoxComponent
   ],
   imports: [
     CommonModule,

@@ -31,7 +31,11 @@ export class SurveyComponent implements OnInit {
   }
 
   handleData(data: any) {
+    data.sort((a, b) => {
+      return a.grade - b.grade;
+    });
     this.data = data;
+    console.log(data);
     this.status = 'finished';
     this.spinner.hide();
   }

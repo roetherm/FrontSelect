@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { CardComponent } from './card/card.component';
 import { HighlightPipe } from './highlight.pipe';
 
@@ -20,6 +21,7 @@ import { HighlightPipe } from './highlight.pipe';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatTooltipModule,
   ],
   exports: [
     FormsModule,
@@ -28,7 +30,8 @@ import { HighlightPipe } from './highlight.pipe';
     MatIconModule,
     MatButtonModule,
     CardComponent,
-    HighlightPipe
+    HighlightPipe,
+    MatTooltipModule,
   ],
   declarations: [
     CardComponent,
