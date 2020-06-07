@@ -164,7 +164,7 @@ export class QuestionContainerComponent implements OnInit {
     } else {
       console.log(this.allRatings);
       this.spinner.show();
-      this.ratingService.sendData()
+      this.ratingService.sendData(this.allRatings)
       .subscribe((data: any) => {
         this.data.emit(data);
       });

@@ -31,7 +31,7 @@ export class SurveyComponent implements OnInit {
   }
 
   handleData(data: any) {
-    data.sort((a, b) => {
+    data.sort((a: { grade: number; }, b: { grade: number; }) => {
       return a.grade - b.grade;
     });
     this.data = data;

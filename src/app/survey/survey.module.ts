@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SurveyRoutingModule } from './survey-routing-module';
 import { SurveyComponent } from './survey/survey.component';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 import { SharedModule } from '../shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +27,8 @@ import { WinnerBoxComponent } from './survey/winner-box/winner-box.component';
     SharedModule,
     MatCardModule,
     MatBadgeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AngularFireFunctionsModule
   ]
 })
 export class SurveyModule { }
