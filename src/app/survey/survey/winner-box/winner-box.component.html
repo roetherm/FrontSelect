@@ -12,9 +12,7 @@
   <div class="component-winnerBox-textBox" [class]="framework.name">
     <span>Zusammenfassung</span>
     <ul>
-      <li>{{ framework.text }}</li>
-      <li>Tea</li>
-      <li>Milk</li>
+      <li *ngFor="let text of framework.text">{{ text }}</li>
     </ul>
   </div>
 

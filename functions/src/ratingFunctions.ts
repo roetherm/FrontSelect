@@ -12,8 +12,13 @@ export const RateData = functions.https.onCall(async (data) => {
     const allFrameworks = await fetchAllFrameworks();
     const allParameters = await getParameters(allFrameworks);
     const allRatings = await rateFramework(allParameters, data);
+    const allGrades = await generateGrade(allRatings);
+    const allTexts = await generateTexts(allGrades);
+    const finalResult = await modifyResults(allTexts);
 
-    return allRatings;
+    sumAllRatings = 0;
+
+    return finalResult;
 
   }
 
@@ -48,6 +53,7 @@ const fetchAllFrameworks = () => {
   })
   return promise;
 }
+
 
 const getParameters = (frameworks: any) => {
 
@@ -106,6 +112,7 @@ const getParameters = (frameworks: any) => {
   return promise;
 }
 
+
 const rateFramework = (allParameters: any, data: any) => {
 
   const promise = new Promise((resolve, reject) => {
@@ -116,8 +123,8 @@ const rateFramework = (allParameters: any, data: any) => {
     data.data.forEach((element: any) => {
       i++;
 
-
-      // const frameworkAmount = allParameters.lengt;
+      // Zähle die Summen zusammen
+      sumAllRatings = sumAllRatings + element.rating;
 
       // Für jedes framework suche die passende id
       allParameters.forEach((framework: any) => {
@@ -125,14 +132,14 @@ const rateFramework = (allParameters: any, data: any) => {
 
         const paramValue = element.rating * param.grade;
 
-        sumAllRatings = sumAllRatings + element.rating;
-
-        Object.assign(param, { value: paramValue});
+        Object.assign(param, {
+          value: paramValue,
+          rating: element.rating
+        });
 
       });
 
-
-
+      // Wenn erfolgreich durchlaufen, dann Promise auflösen
       if (i === data.data.length) {
         resolve(allParameters);
       } else if (i > data.data.length) {
@@ -142,6 +149,114 @@ const rateFramework = (allParameters: any, data: any) => {
     });
 
   });
+
+  return promise;
+
+}
+
+
+const generateGrade = (allRatings: any) => {
+
+  const promise = new Promise((resolve, reject) => {
+
+    let i = 0;
+
+    allRatings.forEach((framework: any) => {
+      i++;
+
+      let frameworkValues = 0;
+
+      // Rechne für jeden Parameter die Values zusammen
+      framework.parameters.forEach((param: any) => {
+        frameworkValues = frameworkValues + param.value;
+      })
+
+      Object.assign(framework, {
+        summe: frameworkValues,
+        grade: frameworkValues / sumAllRatings
+      });
+
+      // Wenn erfolgreich durchlaufen, dann Promise auflösen
+      if (i === allRatings.length) {
+        resolve(allRatings);
+      } else if (i > allRatings.length) {
+        reject();
+      }
+
+    })
+
+  })
+
+  return promise;
+
+}
+
+
+const generateTexts = (allGrades: any) => {
+
+  const promise = new Promise((resolve, reject) => {
+
+    const text: any = [];
+
+    // Sortieren nach bester Note
+    allGrades.sort((a: any, b: any) => {
+      return a.grade - b.grade;
+    });
+
+    // Sortieren nach höchsten Rating
+    allGrades[0].parameters.sort((a: any, b: any) => {
+      return a.rating - b.rating;
+    })
+
+    // Für die besten 3 Ratings pushe den Text in das Text-Array
+    for (let x = 0; x <= 2; x++) {
+
+     text.push(
+       allGrades[0].parameters[x].text
+     );
+
+     if(x > 2) {
+       reject();
+     }
+
+    };
+
+    // Füge das Text-Array dem Object hinzu
+    Object.assign(allGrades[0], {
+      text
+    });
+
+    resolve(allGrades);
+
+  })
+
+  return promise;
+
+}
+
+
+const modifyResults = (allTexts: any) => {
+
+  const promise = new Promise ((resolve, reject) => {
+
+    let i = 0;
+
+    allTexts.forEach((framework: any) => {
+      i++;
+
+      delete framework.parameters;
+      delete framework.summe;
+
+      if (i === allTexts.length) {
+        resolve(allTexts);
+      }
+
+      if (i > allTexts.length) {
+        reject();
+      }
+
+    })
+  })
 
   return promise;
 

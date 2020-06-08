@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-winner-box',
@@ -9,10 +10,13 @@ export class WinnerBoxComponent implements OnInit {
 
   @Input() framework: any;
 
-  constructor() { }
+  constructor(
+    private spinner: NgxSpinnerService,
+  ) { }
 
   ngOnInit(): void {
     console.log(this.framework);
+    this.spinner.hide();
   }
 
 }
