@@ -1,34 +1,83 @@
-<div class="component-editDialog" *ngIf="question">
-  <h1 mat-dialog-title>Edit question #{{ question.id }}
-    <!-- <mat-form-field appearance="fill">
-      <mat-label>Id</mat-label>
-      <input matInput type="number" [(ngModel)]="question.id">
-    </mat-form-field> -->
-  </h1>
+<mat-tab-group mat-align-tabs="center" animationDuration="0ms">
 
-  <div mat-dialog-content class="content">
+  <mat-tab label="Question" *ngIf="question">
+    <div class="component-editDialog">
+      <h1 mat-dialog-title>Edit question #{{ question.id }}
+        <!-- <mat-form-field appearance="fill">
+          <mat-label>Id</mat-label>
+          <input matInput type="number" [(ngModel)]="question.id">
+        </mat-form-field> -->
+      </h1>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Headline</mat-label>
-      <input matInput [(ngModel)]="question.headline">
-    </mat-form-field>
+      <div mat-dialog-content class="content">
 
-    <mat-form-field appearance="fill">
-       <mat-label>Textarea</mat-label>
-       <textarea matInput [(ngModel)]="question.question"></textarea>
-     </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Headline</mat-label>
+          <input matInput [(ngModel)]="question.headline">
+        </mat-form-field>
 
-    <mat-slide-toggle [(ngModel)]="question.reverse">Reverse: {{question.reverse}}</mat-slide-toggle>
+        <mat-form-field appearance="fill">
+           <mat-label>Question</mat-label>
+           <textarea matInput [(ngModel)]="question.question"></textarea>
+         </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Help</mat-label>
-      <textarea  matInput [(ngModel)]="question.help"></textarea>
-    </mat-form-field>
+        <mat-slide-toggle [(ngModel)]="question.reverse">Reverse: {{question.reverse}}</mat-slide-toggle>
 
-  </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Help</mat-label>
+          <textarea  matInput [(ngModel)]="question.help"></textarea>
+        </mat-form-field>
 
-  <div mat-dialog-actions align="end">
-    <button mat-button (click)="onNoClick()">Abbrechen</button>
-    <button mat-button cdkFocusInitial (click)="saveQuestion()">Speichern</button>
-  </div>
-</div>
+      </div>
+
+      <div mat-dialog-actions class="actions" align="end">
+        <button mat-button (click)="onNoClick()">Abbrechen</button>
+        <button mat-button cdkFocusInitial (click)="saveQuestion()">Speichern</button>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/angular.png" alt="angular logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)" [question]="question" framework='angular'></app-edit-framework>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/vue.png" alt="vue logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)" [question]="question" framework='vue'></app-edit-framework>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/react.png" alt="react logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)"[question]="question" framework='react'></app-edit-framework>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/preact.png" alt="preact logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)"[question]="question" framework='preact'></app-edit-framework>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/svelte.png" alt="svelte logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)" [question]="question" framework='svelte'></app-edit-framework>
+  </mat-tab>
+
+  <mat-tab *ngIf="question">
+    <ng-template mat-tab-label>
+      <img class="navLogo" src="assets/img/png/ember.png" alt="ember logo" />
+    </ng-template>
+    <app-edit-framework (closed)="onClosed($event)" [question]="question" framework='ember'></app-edit-framework>
+  </mat-tab>
+
+
+</mat-tab-group>

@@ -35,7 +35,8 @@ export class QuestionListComponent implements OnInit {
 
   openDialog(id: number): void {
   const dialogRef = this.dialog.open(EditDialogComponent, {
-    width: '400px',
+    width: '900px',
+    height: '900px',
     data: {id}
   });
 

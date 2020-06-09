@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CardComponent } from './card/card.component';
@@ -27,6 +28,7 @@ import { HighlightPipe } from './highlight.pipe';
     MatCardModule,
     MatTooltipModule,
     MatDialogModule,
+    MatTabsModule,
     MatSlideToggleModule,
   ],
   exports: [
@@ -41,6 +43,7 @@ import { HighlightPipe } from './highlight.pipe';
     MatTooltipModule,
     MatDialogModule,
     MatSlideToggleModule,
+    MatTabsModule,
   ],
   declarations: [
     CardComponent,

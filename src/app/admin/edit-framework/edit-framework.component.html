@@ -1,0 +1,36 @@
+<div class="component-editFramework">
+
+  <h1 mat-dialog-title>Edit results for question #{{ question.id }}
+    for
+    <b>{{framework | uppercase}}</b>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput type="number" [(ngModel)]="question.id">
+    </mat-form-field> -->
+  </h1>
+
+  <div mat-dialog-content class="content">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Headline</mat-label>
+      <input disabled matInput [(ngModel)]="question.headline">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Grade</mat-label>
+      <input type="number" matInput [(ngModel)]="frameworkData.grade">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+       <mat-label>Summary</mat-label>
+       <textarea matInput [(ngModel)]="frameworkData.text"></textarea>
+     </mat-form-field>
+
+  </div>
+
+  <div mat-dialog-actions class="actions" align="end">
+    <button mat-button (click)="onNoClick()">Abbrechen</button>
+    <button mat-button cdkFocusInitial (click)="saveFramework()">Speichern</button>
+  </div>
+
+</div>
