@@ -1,0 +1,68 @@
+@import '../../../theme.scss';
+
+.component-questionList {
+  position: relative;
+  max-height: 75%;
+  overflow: auto;
+
+  table {
+    width: 100%;
+
+    th {
+      padding: 0 $spacer*2;
+    }
+
+    td {
+      padding: 0 $spacer*2;
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 160px;
+      white-space: nowrap;
+
+      mat-icon {
+        padding-top: 4px;
+        color: $color-grey-lighter;
+
+        &.check {
+          color: $color-secondary;
+        }
+      }
+
+      button {
+        mat-icon {
+          padding: 0;
+          color: $color-primary;
+        }
+      }
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: $color-grey-lightest;
+      }
+
+      &:hover {
+        background-color: $color-primary;
+
+        td {
+          color: white;
+
+          mat-icon {
+            color: white;
+          }
+
+          button {
+            mat-icon {
+              color: white;
+            }
+          }
+        }
+
+        th {
+          color: white;
+        }
+      }
+    }
+  }
+}

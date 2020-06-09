@@ -1,0 +1,34 @@
+<div class="component-editDialog" *ngIf="question">
+  <h1 mat-dialog-title>Edit question #{{ question.id }}
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput type="number" [(ngModel)]="question.id">
+    </mat-form-field> -->
+  </h1>
+
+  <div mat-dialog-content class="content">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Headline</mat-label>
+      <input matInput [(ngModel)]="question.headline">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+       <mat-label>Textarea</mat-label>
+       <textarea matInput [(ngModel)]="question.question"></textarea>
+     </mat-form-field>
+
+    <mat-slide-toggle [(ngModel)]="question.reverse">Reverse: {{question.reverse}}</mat-slide-toggle>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Help</mat-label>
+      <textarea  matInput [(ngModel)]="question.help"></textarea>
+    </mat-form-field>
+
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">Abbrechen</button>
+    <button mat-button cdkFocusInitial (click)="saveQuestion()">Speichern</button>
+  </div>
+</div>

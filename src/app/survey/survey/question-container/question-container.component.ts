@@ -21,7 +21,7 @@ export class QuestionContainerComponent implements OnInit {
   selectedQuestion: any;
   selectedId = 1;
 
-  joker = 1;
+  joker = 3;
   activeJoker = false;
 
   constructor(
@@ -39,6 +39,7 @@ export class QuestionContainerComponent implements OnInit {
     this.questionService.getItems()
     .subscribe((data: any) => {
       this.allQuestions = data;
+      console.log(this.allQuestions);
       this.selectQuestion();
       this.spinner.hide();
     });
@@ -170,5 +171,6 @@ export class QuestionContainerComponent implements OnInit {
       });
     }
   }
+
 
 }

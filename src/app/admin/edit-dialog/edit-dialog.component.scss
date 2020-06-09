@@ -1,0 +1,14 @@
+@import '../../../theme.scss';
+
+.component-editDialog {
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    mat-slide-toggle {
+      padding: $spacer 0 $spacer*3 0;
+    }
+  }
+
+}

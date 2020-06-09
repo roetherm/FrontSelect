@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { AngularFireAuthGuard, hasCustomClaim } from '@angular/fire/auth-guard';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { SurveyComponent } from './survey/survey/survey.component';
+
+const adminOnly = () => hasCustomClaim('admin');
 
 const routes: Routes = [
   {
@@ -26,6 +27,13 @@ const routes: Routes = [
         canActivate: [AngularFireAuthGuard],
         // Lazy Loading Feature Modules
         loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
+      },
+      {
+        path: 'admin',
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: adminOnly },
+        // Lazy Loading Feature Modules
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       },
     ]
   },
