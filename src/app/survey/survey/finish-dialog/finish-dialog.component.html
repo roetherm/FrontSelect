@@ -1,0 +1,13 @@
+<div class="component-finishDialog">
+  <h1 mat-dialog-title>Fast geschafft! 😀</h1>
+  <div mat-dialog-content>
+    <p>Sie haben den Fragebogen <span>erfolgreich</span> ausgefüllt.</p>
+    <p>
+      Nun können Sie sich Ihr individuelles Ergebnis berechnen lassen. Dies kann einige Minuten dauern.
+      </p>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button color="warn" (click)="onNoClick()">Abbrechen</button>
+    <button mat-button [mat-dialog-close]="status" cdkFocusInitial>Ergebnis berechnen</button>
+  </div>
+</div>

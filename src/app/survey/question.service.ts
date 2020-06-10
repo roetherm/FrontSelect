@@ -25,8 +25,6 @@ export class QuestionService {
       map(actions => actions.map((a: any) => {
         const dataset = a.payload.doc.data();
         const key = a.payload.doc.id;
-        console.log(dataset);
-        console.log(key);
         return { key, ...dataset };
       }))
     );

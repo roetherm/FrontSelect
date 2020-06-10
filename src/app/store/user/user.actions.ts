@@ -8,6 +8,7 @@ export enum UserActions {
   GET_USERDATA = '[Auth] Get User Data',
   GET_USERDATA_SUCCESS = '[Auth] Get User Data Success',
 
+  LOGIN = '[Auth] Normal login attempt',
   GOOGLE_LOGIN = '[Auth] Google login attempt',
 
   LOGOUT = '[Auth] Logout',
@@ -53,6 +54,13 @@ export class GetUserdataSuccess implements Action {
 
 export class GoogleLogin implements Action {
   readonly type = UserActions.GOOGLE_LOGIN;
+  constructor(
+    public payload?: any
+  ) { }
+}
+
+export class Login implements Action {
+  readonly type = UserActions.LOGIN;
   constructor(
     public payload?: any
   ) { }

@@ -19,13 +19,13 @@
 
       <div class="right">
 
-        <button mat-icon-button aria-label="navigate_before" (click)="changeQuestion('before')" [disabled]="selectedId === 1">
+        <button mat-icon-button aria-label="navigate_before" matTooltip="Vorherige Frage" (click)="changeQuestion('before')" [disabled]="selectedId === 1">
           <mat-icon>navigate_before</mat-icon>
         </button>
 
         <span>{{ selectedId }} / {{ allQuestions.length }}</span>
 
-        <button mat-icon-button aria-label="navigate_next" (click)="changeQuestion('next')" [disabled]="selectedId === allQuestions.length">
+        <button mat-icon-button aria-label="navigate_next" matTooltip="Nächste Frage" (click)="changeQuestion('next')" [disabled]="selectedId === allQuestions.length">
           <mat-icon>navigate_next</mat-icon>
         </button>
 

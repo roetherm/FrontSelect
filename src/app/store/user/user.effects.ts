@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Store, Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 
@@ -27,6 +27,7 @@ export class UserEffects {
     private actions: Actions,
     private userService: UserService,
     private router: Router,
+    private store: Store<any>,
   ) {}
 
   // Check if user is already logged in
@@ -41,10 +42,8 @@ export class UserEffects {
         map((response) => {
           if (response) {
             this.uid = response.uid;
-            console.log('user is logged in');
             return new GetUserdata();
           } else {
-            console.log('user is not logged in');
             this.router.navigate(['/login']);
             return new AuthError();
           }
@@ -68,13 +67,11 @@ export class UserEffects {
           if (response) {
             // Received user data
             if (response.length === 1) {
-              console.log('user data received');
               return new GetUserdataSuccess(response[0]);
             } else {
               return new AuthError();
             }
           } else {
-            console.log('user data not received');
             return new AuthError();
           }
         }),
@@ -93,6 +90,32 @@ export class UserEffects {
     ),
     mergeMap(() => {
       return this.userService.loginUser()
+      .pipe(
+        map(() => {
+          // Login was successfull
+          return new Authenticated();
+        }),
+        catchError((error) => {
+          return of(new AuthError(error));
+        })
+      );
+    })
+  );
+
+  // Login
+  @Effect()
+  login: Observable<Action> = this.actions.pipe(
+    ofType(
+      UserActions.LOGIN
+    ),
+    mergeMap(() => {
+      let email = '';
+      let password = '';
+      this.store.select('user').subscribe(data => {
+        email = data.email;
+        password = data.password;
+      });
+      return this.userService.loginUserNormal(email, password)
       .pipe(
         map(() => {
           // Login was successfull

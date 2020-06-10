@@ -4,7 +4,7 @@
       <img src="../../assets/img/svg/frontway.svg" alt="logo" />
       <div>
         <span>Front</span>
-        <span>Way</span>
+        <span>Select</span>
       </div>
     </div>
     <!-- State: Logged in -->
@@ -19,23 +19,23 @@
         </button>
       </mat-form-field>
       <div class="component-login-container-buttonList">
-        <button mat-button [disabled]="email === '' || password === ''" (click)="handleClick()">
+        <button mat-button [disabled]="email === '' || password === ''" (click)="loginUserNormal()">
           <mat-icon svgIcon="frontway" aria-hidden="false" aria-label="frontway icon"></mat-icon>
-          <span>FrontWay Login</span>
+          <span>Login</span>
         </button>
         <button mat-button (click)="loginUser()">
           <mat-icon svgIcon="google" aria-hidden="false" aria-label="google icon"></mat-icon>
           <span>Google Login</span>
         </button>
-        <button mat-button>
+        <!-- <button mat-button>
           <mat-icon svgIcon="github" aria-hidden="false" aria-label="github icon"></mat-icon>
           <span>GitHub Login</span>
-        </button>
+        </button> -->
       </div>
-      <div class="component-login-container-footer">
+      <!-- <div class="component-login-container-footer">
         <a routerLink="/survey">Forgot password?</a>
         <a routerLink="/survey">Sign up now</a>
-      </div>
+      </div> -->
     </div>
     <!-- State: Not logged in -->
     <div *ngIf="user$.uid !== ''" class="component-login-container-form">

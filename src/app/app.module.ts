@@ -29,6 +29,8 @@ import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { SurveyModule } from './survey/survey.module';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HistoryModule } from './history/history.module';
+import { ModelModule } from './model/model.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -52,6 +54,8 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
     SharedModule,
     LoginModule,
     SurveyModule,
+    ModelModule,
+    HistoryModule,
     // Angular Firebase Imports
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

@@ -15,7 +15,6 @@ export class WinnerBoxComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.framework);
     this.spinner.hide();
   }
 

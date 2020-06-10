@@ -10,7 +10,7 @@
   </div>
 
   <div class="component-winnerBox-textBox" [class]="framework.name">
-    <span>Zusammenfassung</span>
+    <span>Zusammenfassung für {{ framework.name | uppercase }}</span>
     <ul>
       <li *ngFor="let text of framework.text">{{ text }}</li>
     </ul>

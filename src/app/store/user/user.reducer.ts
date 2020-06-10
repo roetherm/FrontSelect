@@ -6,6 +6,7 @@ const initialState: User = {
   key: '',
   uid: '',
   email: '',
+  password: '',
   displayName: '',
   phoneNumber: '',
   photoURL: '',
@@ -55,6 +56,15 @@ export function userReducer(
     case UserActions.GOOGLE_LOGIN: {
       return {
         ...state,
+        loading: true,
+      };
+    }
+    case UserActions.LOGIN: {
+      return {
+        ...state,
+        uid: action.payload.id,
+        email: action.payload.email,
+        password: action.payload.password,
         loading: true,
       };
     }

@@ -5,6 +5,7 @@ export interface User {
   displayName: string;
   phoneNumber: string;
   photoURL: string;
+  password?: string;
   loading?: boolean;
   error?: string;
 }

@@ -32,7 +32,6 @@ export class SurveyComponent implements OnInit {
       return a.grade - b.grade;
     });
     this.data = data;
-    console.log(data);
     this.status = 'finished';
   }
 

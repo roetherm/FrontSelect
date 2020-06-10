@@ -1,0 +1,115 @@
+<div class="component-historyList">
+  <table mat-table [dataSource]="allResults" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="time" >
+      <th mat-header-cell *matHeaderCellDef> Datum </th>
+      <td mat-cell *matCellDef="let element"> {{element.time.seconds * 1000 | date: 'short' }} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="1place">
+      <th mat-header-cell *matHeaderCellDef> 1. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[0].name | titlecase" [ngClass]="element.data[0].name">
+        <div class="content">
+          <img *ngIf="element.data[0].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[0].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[0].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[0].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[0].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[0].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[0].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="2place">
+      <th mat-header-cell *matHeaderCellDef> 2. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[1].name | titlecase" [ngClass]="element.data[1].name">
+        <div class="content">
+          <img *ngIf="element.data[1].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[1].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[1].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[1].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[1].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[1].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[1].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="3place">
+      <th mat-header-cell *matHeaderCellDef> 3. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[2].name | titlecase" [ngClass]="element.data[2].name">
+        <div class="content">
+          <img *ngIf="element.data[2].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[2].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[2].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[2].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[2].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[2].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[2].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="4place">
+      <th mat-header-cell *matHeaderCellDef> 4. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[3].name | titlecase" [ngClass]="element.data[3].name">
+        <div class="content">
+          <img *ngIf="element.data[3].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[3].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[3].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[3].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[3].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[3].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[3].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="5place">
+      <th mat-header-cell *matHeaderCellDef> 5. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[4].name | titlecase" [ngClass]="element.data[4].name" >
+        <div class="content">
+          <img *ngIf="element.data[4].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[4].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[4].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[4].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[4].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[4].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[4].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="6place">
+      <th mat-header-cell *matHeaderCellDef> 6. Platz </th>
+      <td mat-cell *matCellDef="let element" [matTooltip]="element.data[5].name | titlecase" [ngClass]="element.data[5].name">
+        <div class="content">
+          <img *ngIf="element.data[5].name === 'angular'" src="assets/img/png/angular.png" alt="angular" />
+          <img *ngIf="element.data[5].name === 'vue'" src="assets/img/png/vue.png" alt="vue" />
+          <img *ngIf="element.data[5].name === 'react'" src="assets/img/png/react.png" alt="react" />
+          <img *ngIf="element.data[5].name === 'preact'" src="assets/img/png/preact.png" alt="preact" />
+          <img *ngIf="element.data[5].name === 'svelte'" src="assets/img/png/svelte.png" alt="svelte" />
+          <img *ngIf="element.data[5].name === 'ember'" src="assets/img/png/ember.png" alt="ember" />
+          <span>{{element.data[5].grade | number:'1.1-1'}}</span>
+        </div>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="summary">
+      <th mat-header-cell *matHeaderCellDef> Gewichtungen </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="openDialog(element)">Anzeigen</button>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

@@ -3,11 +3,12 @@
     <div class="logo">
       <img src="../../assets/img/svg/frontway.svg" alt="logo" />
       <span>Front</span>
-      <span>Way</span>
+      <span>Select</span>
     </div>
     <span class="example-spacer"></span>
     <button mat-button [matMenuTriggerFor]="menu">
       <img *ngIf="user$.photoURL" [src]="user$.photoURL" alt="profile" (error)="handleImgError($event)"/>
+      <img *ngIf="!user$.photoURL" src="/assets/img/png/user.png" alt="profile"/>
       <span>{{ user$.displayName }}</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">

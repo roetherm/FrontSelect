@@ -1,0 +1,14 @@
+@import '../../../../theme.scss';
+
+.component-finishDialog {
+
+  p {
+    padding: $spacer 0;
+    line-height: 1.6;
+
+    span {
+      color: $color-green;
+      font-weight: bold;
+    }
+  }
+}

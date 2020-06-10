@@ -3,6 +3,10 @@ import { RatingService } from '../../rating.service';
 import { QuestionService } from '../../question.service';
 import { Observable } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FinishDialogComponent } from './../finish-dialog/finish-dialog.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-question-container',
@@ -28,6 +32,8 @@ export class QuestionContainerComponent implements OnInit {
     private ratingService: RatingService,
     private questionService: QuestionService,
     private spinner: NgxSpinnerService,
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +45,6 @@ export class QuestionContainerComponent implements OnInit {
     this.questionService.getItems()
     .subscribe((data: any) => {
       this.allQuestions = data;
-      console.log(this.allQuestions);
       this.selectQuestion();
       this.spinner.hide();
     });
@@ -157,20 +162,29 @@ export class QuestionContainerComponent implements OnInit {
 
     this.allRatings.push({
       id: this.selectedId,
+      headline: this.selectedQuestion.headline,
       rating,
     });
 
     if (this.selectedId !== this.allQuestions.length) {
       this.changeQuestion('next');
     } else {
-      console.log(this.allRatings);
-      this.spinner.show();
-      this.ratingService.sendData(this.allRatings)
-      .subscribe((data: any) => {
-        this.data.emit(data);
-      });
+      this.openDialog();
     }
   }
 
-
+  openDialog(): void {
+   const dialogRef = this.dialog.open(FinishDialogComponent, {
+     width: '350px',
+   });
+   dialogRef.afterClosed().subscribe(result => {
+     if (result === 'go') {
+       this.spinner.show();
+       this.ratingService.sendData(this.allRatings)
+       .subscribe((data: any) => {
+         this.data.emit(data);
+       });
+     }
+    });
+  }
 }

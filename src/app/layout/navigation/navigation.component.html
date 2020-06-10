@@ -3,8 +3,16 @@
     <mat-icon aria-hidden="false" aria-label="assignment icon">assignment</mat-icon>
     <span>Fragebogen</span>
   </a>
+  <a mat-stroked-button routerLink="/model" routerLinkActive="active-link">
+    <mat-icon aria-hidden="false" aria-label="assignment icon">psychology</mat-icon>
+    <span>Berechnungs-Formel</span>
+  </a>
   <a mat-stroked-button routerLink="/history" routerLinkActive="active-link">
     <mat-icon aria-hidden="false" aria-label="assignment icon">history</mat-icon>
     <span>Verlauf</span>
+  </a>
+  <a *ngIf="isAdmin" mat-stroked-button routerLink="/admin" routerLinkActive="active-link">
+    <mat-icon aria-hidden="false" aria-label="assignment icon">admin_panel_settings</mat-icon>
+    <span>Admin-Interface</span>
   </a>
 </nav>

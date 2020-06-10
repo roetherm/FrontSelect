@@ -29,6 +29,18 @@ const routes: Routes = [
         loadChildren: () => import('./survey/survey.module').then(m => m.SurveyModule)
       },
       {
+        path: 'model',
+        canActivate: [AngularFireAuthGuard],
+        // Lazy Loading Feature Modules
+        loadChildren: () => import('./model/model.module').then(m => m.ModelModule)
+      },
+      {
+        path: 'history',
+        canActivate: [AngularFireAuthGuard],
+        // Lazy Loading Feature Modules
+        loadChildren: () => import('./history/history.module').then(m => m.HistoryModule)
+      },
+      {
         path: 'admin',
         canActivate: [AngularFireAuthGuard],
         data: { authGuardPipe: adminOnly },

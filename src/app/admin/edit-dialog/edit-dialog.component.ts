@@ -31,7 +31,6 @@ export class EditDialogComponent implements OnInit {
    ngOnInit() {
      this.questionService.getQuestion(this.data.id)
      .subscribe((data: any) => {
-       console.log(data);
        this.question = data[0];
        this.spinner.hide();
      });

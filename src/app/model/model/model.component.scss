@@ -1,6 +1,7 @@
-@import '../../../../theme.scss';
+@import '../../../theme.scss';
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@1,700&display=swap');
 
-.component-infoContainer {
+.component-model {
 
   mat-card {
     padding: $spacer*4;
@@ -33,12 +34,22 @@
     }
 
     mat-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
       padding: $spacer;
       padding-bottom: 0;
       margin: 0;
 
+      span {
+        font-family: 'Arvo', serif;
+      }
+
       img {
-        max-height: 200px;
+        max-height: 250px;
+        padding-top: $spacer*2;
       }
 
       p {

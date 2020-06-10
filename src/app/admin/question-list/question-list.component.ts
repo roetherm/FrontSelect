@@ -41,7 +41,6 @@ export class QuestionListComponent implements OnInit {
   });
 
   dialogRef.afterClosed().subscribe(() => {
-    console.log('The dialog was closed');
   });
 }
 

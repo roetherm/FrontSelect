@@ -12,6 +12,7 @@ import { QuestionContainerComponent } from './survey/question-container/question
 import { InfoContainerComponent } from './survey/info-container/info-container.component';
 import { ResultBoxComponent } from './survey/result-box/result-box.component';
 import { WinnerBoxComponent } from './survey/winner-box/winner-box.component';
+import { FinishDialogComponent } from './survey/finish-dialog/finish-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WinnerBoxComponent } from './survey/winner-box/winner-box.component';
     QuestionContainerComponent,
     InfoContainerComponent,
     ResultBoxComponent,
-    WinnerBoxComponent
+    WinnerBoxComponent,
+    FinishDialogComponent
   ],
   imports: [
     CommonModule,

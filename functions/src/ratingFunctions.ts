@@ -3,9 +3,7 @@ import admin = require('firebase-admin');
 
 let sumAllRatings = 0;
 
-export const RateData = functions.https.onCall(async (data) => {
-
-  console.log(data);
+export const RateData = functions.https.onCall(async (data, context) => {
 
   try {
 
@@ -15,6 +13,9 @@ export const RateData = functions.https.onCall(async (data) => {
     const allGrades = await generateGrade(allRatings);
     const allTexts = await generateTexts(allGrades);
     const finalResult = await modifyResults(allTexts);
+
+    const userKey = await getUserKey(context);
+    await saveRequestInDatabase(data, finalResult, userKey);
 
     sumAllRatings = 0;
 
@@ -205,17 +206,18 @@ const generateTexts = (allGrades: any) => {
 
     // Sortieren nach höchsten Rating
     allGrades[0].parameters.sort((a: any, b: any) => {
-      return a.rating - b.rating;
+      return b.rating - a.rating;
     })
 
+
     // Für die besten 3 Ratings pushe den Text in das Text-Array
-    for (let x = 0; x <= 2; x++) {
+    for (let x = 0; x <= 6; x++) {
 
      text.push(
        allGrades[0].parameters[x].text
      );
 
-     if(x > 2) {
+     if(x > 6) {
        reject();
      }
 
@@ -260,4 +262,60 @@ const modifyResults = (allTexts: any) => {
 
   return promise;
 
+}
+
+
+const getUserKey = (context: any) => {
+
+  const promise = new Promise((resolve, reject) => {
+
+    admin.firestore()
+    .collection('users').where('uid', '==', context.auth.uid)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            resolve(doc.id);
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+        reject(error);
+    });
+
+  });
+
+  return promise;
+
+}
+
+
+
+const saveRequestInDatabase = (request: any, data: any, key: any) => {
+
+  const time = admin.firestore.FieldValue.serverTimestamp();
+
+  const promise = new Promise((resolve, reject) => {
+
+    admin.firestore()
+    .collection('users')
+    .doc(key)
+    .collection('results')
+    .add({
+      request,
+      time,
+      data
+    })
+    .then(() => {
+      resolve();
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+        reject(error);
+    });
+
+  })
+
+  return promise;
 }

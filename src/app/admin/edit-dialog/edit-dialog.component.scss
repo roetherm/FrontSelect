@@ -5,6 +5,8 @@ mat-tab-group {
       max-width: 25px;
       max-height: 25px;
   }
+
+  padding: $spacer*4;
 }
 
 .component-editDialog {
@@ -37,4 +39,10 @@ mat-tab-group {
  min-width: 50px!important;
  padding: 3px!important;
  margin: 3px!important;
+}
+
+::ng-deep {
+  .mat-dialog-container {
+    padding: 0;
+  }
 }

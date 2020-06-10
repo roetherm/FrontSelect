@@ -7,7 +7,7 @@ import { User } from '../../models/user.model';
 
 import { Store } from '@ngrx/store';
 import { State } from '../../store';
-import { GoogleLogin, Logout } from '../../store/user/user.actions';
+import { GoogleLogin, Logout, Login } from '../../store/user/user.actions';
 
 @Component({
   selector: 'app-login',
@@ -74,6 +74,14 @@ export class LoginComponent implements OnInit {
 
   loginUser() {
     this.store.dispatch(new GoogleLogin());
+  }
+
+  loginUserNormal() {
+    const data = {
+      email: this.email,
+      password: this.password
+    };
+    this.store.dispatch(new Login(data));
   }
 
   logoutUser() {
