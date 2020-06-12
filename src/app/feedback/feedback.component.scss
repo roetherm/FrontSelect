@@ -1,6 +1,6 @@
-@import '../../../../theme.scss';
+@import '../../theme.scss';
 
-.component-infoContainer {
+.component-feedback {
 
   mat-card {
     padding: $spacer*4;
@@ -33,33 +33,37 @@
     }
 
     mat-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
       padding: $spacer;
       padding-bottom: 0;
       margin: 0;
 
+      mat-form-field {
+        min-width: 300px;
+        max-width: 500px;
+        width: 100%;
+      }
+
+      button {
+        margin: $spacer*2 0;
+      }
+
+      app-rating-component {
+        padding: $spacer*3 0;
+      }
+
       img {
-        max-height: 200px;
+        max-height: 250px;
+        padding-top: $spacer*2;
       }
 
       p {
         line-height: 1.6;
         padding: $spacer*4 0;
-      }
-
-      .welcomeText {
-        padding: $spacer*4 0;
-
-        p {
-          padding: $spacer 0;
-
-          span {
-            font-weight: bold;
-          }
-
-          a {
-            font-weight: bold;
-          }
-        }
       }
 
       .results {

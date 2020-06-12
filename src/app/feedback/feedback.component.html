@@ -1,0 +1,34 @@
+<div class="component-feedback">
+
+  <mat-card>
+
+    <mat-card-header>
+
+      <span>Feedback</span>
+
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <app-rating-component [rating]="rating"  [starCount]="starCount" (ratingUpdated)="onRatingChanged($event)"></app-rating-component>
+
+      <mat-form-field class="textarea">
+          <mat-label>Schreiben Sie ein Kommentar</mat-label>
+          <textarea matInput [(ngModel)]="text" placeholder="Es hat mir gut gefallen, dass..."></textarea>
+      </mat-form-field>
+
+
+      <button mat-button (click)="saveFeedback()">Absenden</button>
+
+
+    </mat-card-content>
+
+
+    <mat-card-footer>
+
+
+    </mat-card-footer>
+
+  </mat-card>
+
+</div>

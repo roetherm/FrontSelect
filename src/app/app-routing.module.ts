@@ -35,6 +35,12 @@ const routes: Routes = [
         loadChildren: () => import('./model/model.module').then(m => m.ModelModule)
       },
       {
+        path: 'feedback',
+        canActivate: [AngularFireAuthGuard],
+        // Lazy Loading Feature Modules
+        loadChildren: () => import('./feedback/feedback.module').then(m => m.FeedbackModule)
+      },
+      {
         path: 'history',
         canActivate: [AngularFireAuthGuard],
         // Lazy Loading Feature Modules

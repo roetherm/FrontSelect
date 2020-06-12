@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
+
 
 import 'firebase/firestore';
 
@@ -17,6 +20,8 @@ export class UserService {
   constructor(
     public afAuth: AngularFireAuth,
     public afDB: AngularFirestore,
+    private spinner: NgxSpinnerService,
+    private router: Router
   ) { }
 
   checkUser(): Observable<any> {
@@ -33,6 +38,8 @@ export class UserService {
       })
       .catch((error) => {
         console.log(error);
+        alert(error);
+        window.location.reload(false);
       })
     );
   }
@@ -45,6 +52,8 @@ export class UserService {
       })
       .catch((error) => {
         console.log(error);
+        alert(error);
+        window.location.reload(false);
       })
     );
   }

@@ -23,7 +23,7 @@
           <mat-icon>navigate_before</mat-icon>
         </button>
 
-        <span>{{ selectedId }} / {{ allQuestions.length }}</span>
+        <span><b>{{ selectedId }}</b> / {{ allQuestions.length }}</span>
 
         <button mat-icon-button aria-label="navigate_next" matTooltip="Nächste Frage" (click)="changeQuestion('next')" [disabled]="selectedId === allQuestions.length">
           <mat-icon>navigate_next</mat-icon>

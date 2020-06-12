@@ -16,8 +16,26 @@
 
     <mat-card-content>
 
-      <p *ngIf="type === 'welcome'">Das Ziel dieser Forschung ist die Erstellung eines Modells, anhand dessen ein Entwickler, auf Basis der Auswertung eines zuvor ausgefüllten Fragebogens, eine Empfehlung ausgesprochen bekommt, welches Framework am besten zu seinen persönlichen Anforderungen passt. Dazu werden die aus Online-Recherchen, Experteninterviews und eigenen Tests entwickelten Qualitätsparameter der marktführenden Front-End-Frameworks untersucht und miteinander verglichen. Lösung
-        Dabei haben die Auswertungen gezeigt, dass es bei der Auswahl des passenden Front-End-Frameworks neben technischen Merkmalen vor allem auch auf die persönlichen Präferenzen eines Entwicklers ankommt. Beispielsweise verfolgen einige Frameworks einen sehr freien Entwicklungs-Ansatz, während andere viele Konventionen vorgeben. Als Ergebnis dieser Masterarbeit entsteht eine Web-Anwendung auf Basis eines zuvor ausgearbeiteten Selektionsmodells, das die relevanten Qualitätsparameter entsprechend der persönlichen Präferenzen eines Entwicklers gewichtet und auswertet.</p>
+      <div class="welcomeText" *ngIf="type === 'welcome'">
+        <p>
+          Diese Web-Anwendung entstand im Rahmen der Masterthesis <span>"Erstellung eines Selektionsmodells zur Auswahl von Front-End-Frameworks anhand einer darauf basierenden Web-Anwendung"</span>.
+        </p>
+        <p>
+          Sie wurde am 17. Juni 2020 von Michael Röther an der Hochschule der Medien, zur Erlangung des akademischen Grades <span>"Master of Science"</span> im Studiengang <span>"Computer Science and Media"</span>, eingereicht.
+        </p>
+        <p>
+          Diese Anwendung dient dazu, einem Entwickler eine Empfehlung auszusprechen, welches Front-End-Framework am besten zu seinen persönlichen Präferenzen passt.
+        </p>
+        <p>
+          Dabei wird es ihm mithilfe eines Fragebogens ermöglicht, eine individuelle Gewichtung der Vergleichsparameter festzulegen, die in das Selektionsmodell (siehe <a routerLink="/model">Berechnungs-Formel</a>) mit einfließen.
+        </p>
+        <p>
+          Der Code dieser Anwendung kann über <a target="_blank" href="https://github.com/roetherm/FrontSelect">"https://github.com/roetherm/FrontSelect"</a> abgerufen werden.
+          </p>
+        <p>
+          Klicken Sie auf <span>Start</span> um zu beginnen.
+        </p>
+      </div>
 
       <div *ngIf="type === 'finished'" class="results">
 
