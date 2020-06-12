@@ -1,5 +1,7 @@
 # FrontSelect
 
+Die Anwendung kann unter https://thesis-aca6a.web.app/ aufgerufen werden.
+
 Diese Web-Anwendung entstand im Rahmen der Masterthesis "Erstellung eines Selektionsmodells zur Auswahl von Front-End-Frameworks anhand einer darauf basierenden Web-Anwendung".
 
 Sie wurde am 17. Juni 2020 von Michael Röther an der Hochschule der Medien, zur Erlangung des akademischen Grades "Master of Science" im Studiengang "Computer Science and Media", eingereicht.
