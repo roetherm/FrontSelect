@@ -1,27 +1,29 @@
-# Thesis
+# FrontSelect
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+Diese Web-Anwendung entstand im Rahmen der Masterthesis "Erstellung eines Selektionsmodells zur Auswahl von Front-End-Frameworks anhand einer darauf basierenden Web-Anwendung".
 
-## Development server
+Sie wurde am 17. Juni 2020 von Michael Röther an der Hochschule der Medien, zur Erlangung des akademischen Grades "Master of Science" im Studiengang "Computer Science and Media", eingereicht.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Diese Anwendung dient dazu, einem Entwickler eine Empfehlung auszusprechen, welches Front-End-Framework am besten zu seinen persönlichen Präferenzen passt.
 
-## Code scaffolding
+Dabei wird es ihm mithilfe eines Fragebogens ermöglicht, eine individuelle Gewichtung der Vergleichsparameter festzulegen, die in das Selektionsmodell mit einfließen.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Dieses Projekt wurde mit dem [Angular CLI](https://github.com/angular/angular-cli) Version 8.2.1. umgesetzt.
+
+## Installation
+
+Klonen Sie dieses Projekt in einen lokalen Ordner und installieren Sie Node.js unter https://nodejs.org/en/download/.
+
+Navigieren Sie sich anschließend über die Konsole in den entsprechenden Ordner und führen Sie `npm install` aus, um alle notwendigen Abhängigkeiten zu installieren.
+
+## Development-Server
+
+Geben Sie `ng serve` in die Konsole ein, um den Development-Server zu starten. Navigieren Sie zu `http://localhost:4200/`. Die Anwendung wird automatisch neu geladen, sobald Sie Änderungen am Code vornehmen.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Geben Sie `ng build` in die Konsole ein, um die Anwendungen in den Build-Prozess zu überführen. Die Build-Dateien werden im Ordner `dist/` gespeichert. Fügen Sie `--prod` hinzu, um eine Production-Version der Anwendung zu erstellen.
 
-## Running unit tests
+## Weitere Informationen
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Benötigen Sie weitere Informationen zum Angular CLI, geben Sie `ng help` in die Konsole ein oder besuchen Sie [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
