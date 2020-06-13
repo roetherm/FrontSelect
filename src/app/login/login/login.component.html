@@ -42,13 +42,13 @@
       <div class="component-login-container-user">
         <img [src]="user$.photoURL" (error)="handleImgError($event)"/>
         <div>
-          <span>Logged in as</span>
+          <span>Eingeloggt als</span>
           <span>{{ user$.displayName }}</span>
         </div>
       </div>
       <div class="component-login-container-buttonList">
-        <span *ngIf="counter > 1">Forwarding in <b>{{ counter }}</b> seconds</span>
-        <span *ngIf="counter === 1">Forwarding in <b>{{ counter }}</b> second</span>
+        <span *ngIf="counter > 1">Weiterleitung in <b>{{ counter }}</b> Sekunden...</span>
+        <span *ngIf="counter === 1">Weiterleitung in <b>{{ counter }}</b> Sekunde...</span>
         <button class="logout" color="warn" mat-button (click)="logoutUser()">
           <span>Logout</span>
         </button>

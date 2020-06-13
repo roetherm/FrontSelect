@@ -4,7 +4,7 @@
 
     <mat-card-header>
 
-      <div class="left">
+      <!-- <div class="left">
 
         <div mat-card-avatar class="avatar">
           <img src="../../assets/img/svg/idea.svg" alt="question" />
@@ -15,7 +15,7 @@
           <span>#{{ selectedQuestion.id }}</span>
         </div>
 
-      </div>
+      </div> -->
 
       <div class="right">
 
@@ -23,13 +23,15 @@
           <mat-icon>navigate_before</mat-icon>
         </button>
 
-        <span><b>{{ selectedId }}</b> / {{ allQuestions.length }}</span>
+        <span>{{ selectedId }}</span> <span> / {{ allQuestions.length }}</span>
 
-        <button mat-icon-button aria-label="navigate_next" matTooltip="Nächste Frage" (click)="changeQuestion('next')" [disabled]="selectedId === allQuestions.length">
+        <button mat-icon-button aria-label="navigate_next" matTooltip="Nächste Frage" (click)="handleNextClick()" [disabled]="selectedId === allQuestions.length">
           <mat-icon>navigate_next</mat-icon>
         </button>
 
       </div>
+
+      <span class="category">{{ selectedQuestion.headline }}</span>
 
     </mat-card-header>
 
@@ -48,16 +50,21 @@
     <mat-card-footer>
 
       <div>
-        <button mat-button [class]="currentRating === 1 ? 'rated-1' : ''" [disabled]="activeJoker && !selectedQuestion.reverse" (click)="handleRating(1)" color="1">Stimme voll dagegen</button>
-        <button mat-button [class]="currentRating === 2 ? 'rated-2' : ''" [disabled]="activeJoker" (click)="handleRating(2)" color="2">Stimme eher dagegen</button>
-        <button mat-button [class]="currentRating === 3 ? 'rated-3' : ''" [disabled]="activeJoker" (click)="handleRating(3)" color="3">Ist mir egal</button>
-        <button mat-button [class]="currentRating === 5 ? 'rated-5' : ''" [disabled]="activeJoker" (click)="handleRating(5)" color="5">Stimme eher zu</button>
-        <button mat-button [class]="currentRating === 8 || currentRating === 21? 'rated-8' : ''" [disabled]="activeJoker && selectedQuestion.reverse" (click)="handleRating(8)" color="8">Stimme voll zu</button>
+        <button mat-button [class]="currentRating === 1 ? 'rated-1' : ''" (click)="handleRating(1)" color="1">Stimme voll dagegen</button>
+        <button mat-button [class]="currentRating === 2 ? 'rated-2' : ''" (click)="handleRating(2)" color="2">Stimme eher dagegen</button>
+        <button mat-button [class]="currentRating === 3 ? 'rated-3' : ''" (click)="handleRating(3)" color="3">Ist mir egal</button>
+        <button mat-button [class]="currentRating === 5 ? 'rated-5' : ''" (click)="handleRating(5)" color="5">Stimme eher zu</button>
+        <button mat-button [class]="currentRating === 8 ? 'rated-8' : ''" (click)="handleRating(8)" color="8">Stimme voll zu</button>
       </div>
 
       <div>
         <button mat-button (click)="handleRating(0)">Überspringen</button>
-        <mat-checkbox [(ngModel)]="activeJoker" (click)="checkClick()" [matBadge]="joker" matBadgePosition="after" matBadgeColor="accent">Besondere Gewichtung</mat-checkbox>
+        <!-- <mat-checkbox [(ngModel)]="activeJoker" (click)="checkClick()" [matBadge]="joker" matBadgePosition="after" matBadgeColor="accent">Besondere Gewichtung</mat-checkbox> -->
+        <button mat-button *ngIf="!selectedQuestion.reverse" [class]="currentRating === 21 ? 'rated-21' : ''" (click)="checkClick()" color="21" [matBadge]="joker" matBadgePosition="after" matBadgeColor="accent">Ja, es ist mir besonders wichtig!</button>
+        <button mat-button *ngIf="selectedQuestion.reverse" [class]="currentRating === 21 ? 'rated-21' : ''" (click)="checkClick()" color="21" [matBadge]="joker" matBadgePosition="after" matBadgeColor="accent">Nein, es ist mir besonders wichtig!</button>
+        <button class="infoButton" mat-icon-button aria-label="info" matTooltip="Informationen zur Gewichtung" (click)="openGewichtungDialog()">
+          <mat-icon>help</mat-icon>
+        </button>
       </div>
 
     </mat-card-footer>

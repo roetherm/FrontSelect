@@ -1,6 +1,6 @@
 @import '../../../../theme.scss';
 
-.component-finishDialog {
+.component-gewichtungDialog {
 
   padding: $spacer*4;
 
@@ -9,9 +9,15 @@
     line-height: 1.6;
 
     span {
-      color: $color-green;
+      color: $color-grey;
       font-weight: bold;
     }
+  }
+
+  .link {
+    color: $color-primary;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
 

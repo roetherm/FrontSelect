@@ -18,7 +18,7 @@
      <ng-container matColumnDef="Gewichtung">
        <th mat-header-cell *matHeaderCellDef> Multiplikator </th>
        <td mat-cell *matCellDef="let element">
-         {{element.rating}}
+         <span [class]="element.rating === 21 ? 'joker' : ''">{{element.rating}}</span>
        </td>
      </ng-container>
 

@@ -6,6 +6,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarComponent } from '../../../shared/snackbar/snackbar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FinishDialogComponent } from './../finish-dialog/finish-dialog.component';
+import { GewichtungDialogComponent } from './../gewichtung-dialog/gewichtung-dialog.component';
+
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -77,19 +79,23 @@ export class QuestionContainerComponent implements OnInit {
               this.currentRating = 1;
               break;
             case 21:
-              this.currentRating = 1;
-              this.activeJoker = true;
+              this.currentRating = 21;
               break;
             default:
               this.currentRating = currentQuestion.rating;
           }
         } else {
           this.currentRating = currentQuestion.rating;
-          if (currentQuestion.rating === 21) {
-            this.activeJoker = true;
-          }
         }
       }
+    }
+  }
+
+  handleNextClick() {
+    if (this.currentRating === 0) {
+      this.handleRating(0);
+    } else {
+      this.changeQuestion('next');
     }
   }
 
@@ -103,39 +109,47 @@ export class QuestionContainerComponent implements OnInit {
   }
 
   checkClick() {
-    if (this.joker !== 0) {
-      if (!this.activeJoker) {
-        this.currentRating = 0;
-        const index = this.allRatings.findIndex(el => el.id === this.selectedId);
-        if (index >= 0) {
-          this.allRatings.splice(index, 1);
-        } else {
-        }
-        this.joker --;
-      } else {
-        this.joker ++;
-        this.currentRating = 0;
-        const index = this.allRatings.findIndex(el => el.id === this.selectedId);
-        if (index >= 0) {
-          this.allRatings.splice(index, 1);
-        }
-      }
-    } else if (this.joker === 0 && this.activeJoker === true) {
-      this.joker ++;
-      this.currentRating = 0;
-      const index = this.allRatings.findIndex(el => el.id === this.selectedId);
-      if (index >= 0) {
-        this.allRatings.splice(index, 1);
-      }
-    } else {
-      this.activeJoker = true;
+    if (this.joker !== 0 && this.currentRating !== 21) {
+      this.handleRating(21);
+      this.joker --;
+    } else if (this.joker !== 0 && this.currentRating === 21) {
+      this.handleRating(21);
     }
+    // if (this.joker !== 0) {
+    //   if (!this.activeJoker) {
+    //     this.currentRating = 0;
+    //     const index = this.allRatings.findIndex(el => el.id === this.selectedId);
+    //     if (index >= 0) {
+    //       this.allRatings.splice(index, 1);
+    //     } else {
+    //     }
+    //     this.joker --;
+    //   } else {
+    //     this.joker ++;
+    //     this.currentRating = 0;
+    //     const index = this.allRatings.findIndex(el => el.id === this.selectedId);
+    //     if (index >= 0) {
+    //       this.allRatings.splice(index, 1);
+    //     }
+    //   }
+    // } else if (this.joker === 0 && this.activeJoker === true) {
+    //   this.joker ++;
+    //   this.currentRating = 0;
+    //   const index = this.allRatings.findIndex(el => el.id === this.selectedId);
+    //   if (index >= 0) {
+    //     this.allRatings.splice(index, 1);
+    //   }
+    // } else {
+    //   this.activeJoker = true;
+    // }
   }
 
   handleRating(rating: number) {
-    if (this.activeJoker) {
-      rating = 21;
-    } else if (this.selectedQuestion.reverse) {
+    console.log(this.allRatings);
+    // if (this.activeJoker) {
+    //   rating = 21;
+    // } else
+    if (this.selectedQuestion.reverse) {
       switch (rating) {
         case 1:
           rating = 8;
@@ -154,8 +168,13 @@ export class QuestionContainerComponent implements OnInit {
       }
     }
 
+    if (this.currentRating === 21 && rating !== 21) {
+      this.joker ++;
+    }
+
     const index = this.allRatings.findIndex(el => el.id === this.selectedId);
     if (index >= 0) {
+      console.log('eintrag schon vorhanden');
       this.allRatings.splice(index, 1);
     } else {
     }
@@ -175,7 +194,7 @@ export class QuestionContainerComponent implements OnInit {
 
   openDialog(): void {
    const dialogRef = this.dialog.open(FinishDialogComponent, {
-     width: '350px',
+     width: '400px',
    });
    dialogRef.afterClosed().subscribe(result => {
      if (result === 'go') {
@@ -186,5 +205,11 @@ export class QuestionContainerComponent implements OnInit {
        });
      }
     });
+  }
+
+  openGewichtungDialog(): void {
+   const dialogRef = this.dialog.open(GewichtungDialogComponent, {
+     width: '600px',
+   });
   }
 }

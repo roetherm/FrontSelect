@@ -19,6 +19,14 @@ table {
     max-width: 160px;
     white-space: nowrap;
 
+    span.joker {
+      background-color: $color-primary;
+      color: white;
+      border-radius: 4px;
+      padding: $spacer/2;
+      font-weight: bold;
+    }
+
 
     &.angular {
       background-color: lighten($color-angular, 25);

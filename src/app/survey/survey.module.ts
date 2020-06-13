@@ -13,6 +13,7 @@ import { InfoContainerComponent } from './survey/info-container/info-container.c
 import { ResultBoxComponent } from './survey/result-box/result-box.component';
 import { WinnerBoxComponent } from './survey/winner-box/winner-box.component';
 import { FinishDialogComponent } from './survey/finish-dialog/finish-dialog.component';
+import { GewichtungDialogComponent } from './survey/gewichtung-dialog/gewichtung-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FinishDialogComponent } from './survey/finish-dialog/finish-dialog.comp
     InfoContainerComponent,
     ResultBoxComponent,
     WinnerBoxComponent,
-    FinishDialogComponent
+    FinishDialogComponent,
+    GewichtungDialogComponent
   ],
   imports: [
     CommonModule,

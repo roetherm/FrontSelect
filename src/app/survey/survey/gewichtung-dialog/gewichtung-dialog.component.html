@@ -1,0 +1,27 @@
+<div class="component-gewichtungDialog">
+  <h1 mat-dialog-title>Gewichtungen</h1>
+  <div mat-dialog-content>
+    <p>Die Gewichtung orientiert sich an der <span>Fibonacci-Folge</span>.</p>
+    <p>
+      Die Gewichtung pro Vergleichsparameter kann die Werte 0, 1, 2, 3, 5, 8 oder 21 annehmen.</p>
+      <p>
+      Ist eine Aussage <span>positiv</span> formuliert, sind die Gewichtungen folgendermaßen aufgeteilt: <br />
+      Stimme voll dagegen = 1, Stimme eher dagegen  = 2, Ist mir egal = 3, Stimme eher zu = 5, Stimme voll zu = 8.
+      </p>
+      <p>
+      Ist eine Aussage <span>negativ</span> formuliert, sind die Gewichtungen folgendermaßen aufgeteilt: <br />
+      Stimme voll dagegen = 8, Stimme eher dagegen  = 5, Ist mir egal = 3, Stimme eher zu = 2, Stimme voll zu = 1.
+      </p>
+      <p>
+      Jeder Nutzer kann <b>3 Mal die besondere Gewichtung auswählen</b> oder eine Frage überspringen: <br />
+      Überspringen = 0, Ja / Nein, ist mir besonders wichtig = 21.
+      </p>
+      <p>
+      Weitere Informationen zur Berechnungs-Formel des Selektionsmodells finden Sie hier:
+      </p>
+      <span class="link" (click)="openNewTab()"><b>Berechnungs-Formel</b></span>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button cdkFocusInitial (click)="onNoClick()">Schließen</button>
+  </div>
+</div>

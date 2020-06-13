@@ -6,7 +6,7 @@
 
       <span *ngIf="type === 'welcome'">Herzlich Willkommen</span>
       <span *ngIf="type === 'finished'">
-        Ihr Ergebnis
+        Ihr Ergebnis in Schulnoten
         <button mat-icon-button aria-label="refresh button" (click)="sendStatus('started')">
            <mat-icon matTooltip="Fragebogen nochmal ausfüllen">360</mat-icon>
          </button>
@@ -33,7 +33,7 @@
           Der Code dieser Anwendung kann über <a target="_blank" href="https://github.com/roetherm/FrontSelect">"https://github.com/roetherm/FrontSelect"</a> abgerufen werden.
           </p>
         <p>
-          Klicken Sie auf <span>Start</span> um zu beginnen.
+          Klicken Sie auf <span>Fragebogen ausfüllen</span> um zu beginnen.
         </p>
       </div>
 
@@ -60,7 +60,7 @@
 
     <mat-card-footer>
 
-      <button mat-flat-button color="primary" *ngIf="type === 'welcome'" (click)="sendStatus('started')">Start</button>
+      <button mat-flat-button color="primary" *ngIf="type === 'welcome'" (click)="sendStatus('started')">Fragebogen ausfüllen</button>
 
     </mat-card-footer>
 
